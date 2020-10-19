@@ -25,11 +25,13 @@ namespace Bartolini.Liam._4H.PoligonoXml
             string strNlati = "";
             string strLlati = "";
 
+            //ciclo per controllare l'input dell'utente
             while (f)
-            {
+            {                
                 strNlati = NumeroLati.Text;
                 strLlati = lLAti.Text;
                 f = InputCheck(strNlati);
+                DisplayAlert("Attenzione", "Il numero di lati inserito non corrisponde ad un poligono...", "Ok");
             }
 
             Poligono figura = new Poligono(Convert.ToDouble(strNlati), Convert.ToDouble(strLlati));
@@ -45,6 +47,7 @@ namespace Bartolini.Liam._4H.PoligonoXml
 
             //stampa per i risultati
             lblRisultatoCol2.Text = $"\r\n{figura.area:n2} cm^2\r\n{figura.perimetro:n2} cm\r\n{figura.apotema:n2} cm\r\n{figura.fisso:n2}\r\n{figura.Nome()}";
+
         }
 
         private bool InputCheck(string nLati)
@@ -52,7 +55,11 @@ namespace Bartolini.Liam._4H.PoligonoXml
             bool f = false;
 
             if (Convert.ToInt32(nLati) < 3)
+            {
                 f = true;
+
+                
+            }
 
             return f;
         }

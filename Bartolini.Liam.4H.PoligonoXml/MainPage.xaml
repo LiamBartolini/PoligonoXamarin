@@ -7,7 +7,6 @@
              x:Class="Bartolini.Liam._4H.PoligonoXml.MainPage">
 
     <StackLayout>
-
         <Label
             Text="POLIGONO REGOLARE"
             FontAttributes="Bold"
@@ -18,7 +17,7 @@
             />
 
         <StackLayout Orientation="Horizontal">
-            
+
             <Entry 
             x:Name="NumeroLati"
             Placeholder="Numero dei lati:" 
@@ -30,22 +29,34 @@
             Placeholder="Lunghezza lato:" 
             HorizontalOptions="FillAndExpand"
             />
+
+            
+
         </StackLayout>
 
-        <!--bottone per calcolare Area, Perimetro e stampa del nome del poligono-->
-        <Button 
+        <StackLayout Orientation="Horizontal">
+        
+            <!--bottone per calcolare Area, Perimetro e stampa del nome del poligono-->
+            <Button 
             Text="Calcola"
             Clicked="Calcola"
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="Center"
             />
 
-        <!--bottone per confrontare due poligoni-->
-        <Button 
+            <!--bottone per confrontare due poligoni-->
+            <Button 
             Text="Confronta"
             Clicked="Confronta"
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="Center"
+            />
+
+        </StackLayout>
+
+        <Label
+            Text="_________________________________________________________________"
+            TextColor="#161e61"
             />
 
         <!--stacklayout per la stampa dei calcoli in modo più ordinato-->
