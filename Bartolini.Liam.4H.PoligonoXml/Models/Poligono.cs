@@ -56,16 +56,15 @@ namespace Bartolini.Liam._4H.PoligonoXml.Models
 
         public string Nome()
         {
-            string strR;
+            string[] array = new string[] { "triangolo", "quadrato", "pentagono", "esagono", "ettagono", "ottagono", "ennagono", "decagono", "endecagono", "dodecagono" };
 
             if (this.nLati < 3)
                 return "Non è un poligono";
-
-            string[] array = new string[] { "triangolo", "quadrato", "pentagono", "esagono", "ettagono", "ottagono", "ennagono", "decagono", "endecagono", "dodecagono" };
-
-            strR = array[(int)this.nLati - 3];
-
-            return strR;
+            
+            if (this.nLati> 12)
+                return "Poligono non supportato";
+            else
+                return array[(int)this.nLati - 3];
         }
 
         public string Confronta(Poligono p2)

@@ -25,13 +25,11 @@
             />
 
             <Entry 
-            x:Name="lLAti"
+            x:Name="lLati"
             Placeholder="Lunghezza lato:" 
             HorizontalOptions="FillAndExpand"
             />
-
             
-
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">

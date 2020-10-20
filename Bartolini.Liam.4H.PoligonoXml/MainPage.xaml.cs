@@ -21,53 +21,36 @@ namespace Bartolini.Liam._4H.PoligonoXml
 
         private void Calcola(object sender, EventArgs e)
         {
-            bool f = true;
-            string strNlati = "";
-            string strLlati = "";
+            //controlla l'input dul numero di lati
+            string strLlati = lLati.Text;
+            string strNlati = NumeroLati.Text;
 
-            //ciclo per controllare l'input dell'utente
-            while (f)
-            {                
-                strNlati = NumeroLati.Text;
-                strLlati = lLAti.Text;
-                f = InputCheck(strNlati);
-                DisplayAlert("Attenzione", "Il numero di lati inserito non corrisponde ad un poligono...", "Ok");
-            }
-
-            Poligono figura = new Poligono(Convert.ToDouble(strNlati), Convert.ToDouble(strLlati));
-
-            figura.Apotema();
-            figura.Fisso();
-
-            figura.Perimetro();
-            figura.Area();
-
-            //stampa per il nome del calcolo
-            lblRisultatoCol1.Text = $"Risultati:\r\nArea: \r\nPerimetro: \r\nApotema: \r\nNumero fisso: \r\nNome: ";
-
-            //stampa per i risultati
-            lblRisultatoCol2.Text = $"\r\n{figura.area:n2} cm^2\r\n{figura.perimetro:n2} cm\r\n{figura.apotema:n2} cm\r\n{figura.fisso:n2}\r\n{figura.Nome()}";
-
-        }
-
-        private bool InputCheck(string nLati)
-        {
-            bool f = false;
-
-            if (Convert.ToInt32(nLati) < 3)
+            if (InputCheckMin(strNlati) || InputCheckMax(strNlati))
             {
-                f = true;
-
-                
+                DisplayAlert("Attenzione", "Il numero di lati inserito non è accettato", "Ok");
             }
+            else
+            {
+                Poligono figura = new Poligono(Convert.ToDouble(strNlati), Convert.ToDouble(strLlati));
 
-            return f;
+                figura.Apotema();
+                figura.Fisso();
+
+                figura.Perimetro();
+                figura.Area();
+
+                //stampa per il nome del calcolo
+                lblRisultatoCol1.Text = $"Risultati:\r\nArea: \r\nPerimetro: \r\nApotema: \r\nNumero fisso: \r\nNome: ";
+
+                //stampa per i risultati
+                lblRisultatoCol2.Text = $"\r\n{figura.area:n2} cm^2\r\n{figura.perimetro:n2} cm\r\n{figura.apotema:n2} cm\r\n{figura.fisso:n2}\r\n{figura.Nome()}";
+            }
         }
 
         private void Confronta(object sender, EventArgs e)
         {
             string strNLati = NumeroLati.Text;
-            string strLLati = lLAti.Text;
+            string strLLati = lLati.Text;
 
             double Nlati = Convert.ToDouble(strNLati);
             double Llati = Convert.ToDouble(strLLati);
@@ -117,6 +100,25 @@ namespace Bartolini.Liam._4H.PoligonoXml
             }
 
             quadratoPersonale.IsVisible = true;
+        }
+
+        private bool InputCheckMin(string nLati)
+        {
+            bool f = false;
+
+            if (Convert.ToInt32(nLati) < 3)
+                f = true;
+
+            return f;
+        }
+        private bool InputCheckMax(string L_Lati)
+        {
+            bool f = false;
+
+            if (Convert.ToInt32(L_Lati) > 12)
+                f = true;
+
+            return f;
         }
     }
 }
