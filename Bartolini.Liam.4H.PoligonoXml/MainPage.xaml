@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Bartolini.Liam._4H.PoligonoXml.MainPage">
+
+    <StackLayout>
+        <Label
+            Text="POLIGONO REGOLARE"
+            FontAttributes="Bold"
+            TextColor="BlueViolet"
+            FontSize="Large"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            />
+
+        <StackLayout Orientation="Horizontal">
+
+            <Entry 
+            x:Name="NumeroLati"
+            Placeholder="Numero dei lati:" 
+            HorizontalOptions="FillAndExpand"
+            />
+
+            <Entry 
+            x:Name="lLati"
+            Placeholder="Lunghezza lato:" 
+            HorizontalOptions="FillAndExpand"
+            />
+            
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+        
+            <!--bottone per calcolare Area, Perimetro e stampa del nome del poligono-->
+            <Button 
+            Text="Calcola"
+            Clicked="Calcola"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center"
+            />
+
+            <!--bottone per confrontare due poligoni-->
+            <Button 
+            Text="Confronta"
+            Clicked="Confronta"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center"
+            />
+
+        </StackLayout>
+
+        <Label
+            Text="_________________________________________________________________"
+            TextColor="#161e61"
+            />
+
+        <!--stacklayout per la stampa dei calcoli in modo più ordinato-->
+        <StackLayout Orientation="Horizontal">
+
+            <Label 
+                x:Name="lblRisultatoCol1"
+                FontSize="Medium"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="Center"
+                TextColor="#0eb554"
+                />
+
+            <Label 
+                x:Name="lblRisultatoCol2"
+                FontSize="Medium"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
+                TextColor="#9009b5"
+                />
+
+        </StackLayout>
+
+        <!--la uso per stampare le foto dei poligoni che sto usando comparando-->
+
+        <StackLayout Orientation="Horizontal">
+            <!--prima immagine posizionata a sinistra-->
+            <Grid HorizontalOptions="StartAndExpand">
+                <Image x:Name="triangolo" Source="triangolo.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="quadrato" Source="quadrato.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="pentagono" Source="pentagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="esagono" Source="esagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="ettagono" Source="ettagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="ottagono" Source="onnagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="ennagono" Source="ennagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="decagono" Source="decagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="endecagono" Source="endecagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+                <Image x:Name="dodecagono" Source="dodecagono.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+            </Grid>
+            
+            <!--seconda immagine posizionata a destra-->
+            <Grid HorizontalOptions="EndAndExpand">
+                <Image x:Name="quadratoPersonale" Source="quadrato.jpg" IsVisible="False" WidthRequest="210" HeightRequest="210"></Image>
+            </Grid>
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>
