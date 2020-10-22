@@ -25,15 +25,17 @@ namespace Bartolini.Liam._4H.PoligonoXml
             string strLlati = lLati.Text;
             string strNlati = NumeroLati.Text;
 
-            if (InputCheckMin(strNlati) || InputCheckMax(strNlati))
+            //controllo per l'input dei dati
+            if (InputCheckNLati(strNlati) || InputCheckLlati(strLlati))
             {
-                DisplayAlert("Attenzione", "Il numero di lati inserito non è accettato", "Ok");
+                DisplayAlert("Attenzione", "Il numero/lunghezza dei lati inserito non è accettato", "Ok");
             }
             else
             {
                 Poligono figura = new Poligono(Convert.ToDouble(strNlati), Convert.ToDouble(strLlati));
 
                 figura.Apotema();
+
                 figura.Fisso();
 
                 figura.Perimetro();
@@ -43,7 +45,7 @@ namespace Bartolini.Liam._4H.PoligonoXml
                 lblRisultatoCol1.Text = $"Risultati:\r\nArea: \r\nPerimetro: \r\nApotema: \r\nNumero fisso: \r\nNome: ";
 
                 //stampa per i risultati
-                lblRisultatoCol2.Text = $"\r\n{figura.area:n2} cm^2\r\n{figura.perimetro:n2} cm\r\n{figura.apotema:n2} cm\r\n{figura.fisso:n2}\r\n{figura.Nome()}";
+                lblRisultatoCol2.Text = $"\r\n{figura._area:n2} cm^2\r\n{figura._perimetro:n2} cm\r\n{figura._apotema:n2} cm\r\n{figura._fisso:n2}\r\n{figura.Nome()}";
             }
         }
 
@@ -59,7 +61,7 @@ namespace Bartolini.Liam._4H.PoligonoXml
             Poligono personale = new Poligono(4, 7);
 
             lblRisultatoCol1.Text = $"Poligo di confronto: \r\nLati: \r\nLunghezza lato: \r\n\r\nL'esito del confronto";
-            lblRisultatoCol2.Text = $"\r\n{personale.nLati}\r\n{personale.L_lati}\r\n\r\n{figura.Confronta(personale)}";
+            lblRisultatoCol2.Text = $"\r\n{personale._nLati}\r\n{personale._l_lati}\r\n\r\n{figura.Confronta(personale)}";
             DrawPrint(Nlati);
         }
 
@@ -102,23 +104,26 @@ namespace Bartolini.Liam._4H.PoligonoXml
             quadratoPersonale.IsVisible = true;
         }
 
-        private bool InputCheckMin(string nLati)
+        private bool InputCheckNLati(string nLati)
         {
-            bool f = false;
+            if (string.IsNullOrEmpty(nLati))
+                return true;
 
-            if (Convert.ToInt32(nLati) < 3)
-                f = true;
+            if (Convert.ToInt32(nLati) < 3 || Convert.ToInt32(nLati) > 12)
+                return true;
 
-            return f;
+            return false;
         }
-        private bool InputCheckMax(string L_Lati)
+
+        private bool InputCheckLlati(string LLati)
         {
-            bool f = false;
+            if (string.IsNullOrEmpty(LLati))
+                return true;
 
-            if (Convert.ToInt32(L_Lati) > 12)
-                f = true;
-
-            return f;
+            if (Convert.ToInt32(LLati) < 0)
+                return true;
+            else
+                return false;
         }
     }
 }

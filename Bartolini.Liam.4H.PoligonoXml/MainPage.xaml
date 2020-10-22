@@ -55,6 +55,7 @@
         <Label
             Text="_________________________________________________________________"
             TextColor="#161e61"
+            BackgroundColor="#161e61"
             />
 
         <!--stacklayout per la stampa dei calcoli in modo più ordinato-->
