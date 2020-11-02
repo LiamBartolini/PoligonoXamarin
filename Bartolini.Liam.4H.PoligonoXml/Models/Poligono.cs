@@ -6,13 +6,90 @@ namespace Bartolini.Liam._4H.PoligonoXml.Models
 {
     class Poligono
     {
-        public double _nLati;
-        public double _l_lati;
-        public double _apotema;
-        public double _perimetro;
-        public double _area;
-        public double _fisso;
+        private double _nLati;
+        public double NLati
+        {
+            get
+            {
+                return _nLati;
+            }
 
+            set
+            {
+                _nLati = value;
+            }
+        }
+        
+        private double _l_lati;
+        public double LLati
+        {
+            get
+            {
+                return _l_lati;
+            }
+
+            set
+            {
+                _l_lati = value;
+            }
+        }
+
+        private double _apotema;
+        public double Apotema
+        {
+            get
+            {
+                return _apotema;
+            }
+
+            set
+            {
+                _apotema = value;
+            }
+        }
+        
+        private double _perimetro;
+        public double Perimetro
+        {
+            get
+            {
+                return _perimetro;
+            }
+
+            set
+            {
+                _perimetro = value;
+            }
+        }
+
+        private double _area;
+        public double Area
+        {
+            get
+            {
+                return _area;
+            }
+
+            set
+            {
+                _area = value;
+            }
+        }
+
+        private double _fisso;
+        public double Fisso
+        {
+            get
+            {
+                return _fisso;
+            }
+
+            set
+            {
+                _fisso = value;
+            }
+        }
+        
         public Poligono()
         {
             //costruisce il quadrato di lato 1
@@ -34,22 +111,22 @@ namespace Bartolini.Liam._4H.PoligonoXml.Models
             _nLati = lati;
         }
 
-        public void Area()
+        public void CalcoloArea()
         {
             this._area = this._perimetro * this._fisso / 2;
         }
 
-        public void Perimetro()
+        public void CalcoloPerimetro()
         {
             this._perimetro = this._nLati * this._l_lati;
         }
 
-        public void Apotema()
+        public void CalcoloApotema()
         {
             this._apotema = this._l_lati / (2 * Math.Tan(Math.PI / this._nLati));
         }
 
-        public void Fisso()
+        public void CalcoloFisso()
         {
             this._fisso = this._apotema / this._l_lati;
         }

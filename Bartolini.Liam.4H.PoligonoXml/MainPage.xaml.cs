@@ -34,18 +34,18 @@ namespace Bartolini.Liam._4H.PoligonoXml
             {
                 Poligono figura = new Poligono(Convert.ToDouble(strNlati), Convert.ToDouble(strLlati));
 
-                figura.Apotema();
+                figura.CalcoloApotema();
 
-                figura.Fisso();
+                figura.CalcoloFisso();
 
-                figura.Perimetro();
-                figura.Area();
+                figura.CalcoloPerimetro();
+                figura.CalcoloArea();
 
                 //stampa per il nome del calcolo
                 lblRisultatoCol1.Text = $"Risultati:\r\nArea: \r\nPerimetro: \r\nApotema: \r\nNumero fisso: \r\nNome: ";
 
                 //stampa per i risultati
-                lblRisultatoCol2.Text = $"\r\n{figura._area:n2} cm^2\r\n{figura._perimetro:n2} cm\r\n{figura._apotema:n2} cm\r\n{figura._fisso:n2}\r\n{figura.Nome()}";
+                lblRisultatoCol2.Text = $"\r\n{figura.Area:n2} cm^2\r\n{figura.Perimetro:n2} cm\r\n{figura.Apotema:n2} cm\r\n{figura.Fisso:n2}\r\n{figura.Nome()}";
             }
         }
 
@@ -61,7 +61,7 @@ namespace Bartolini.Liam._4H.PoligonoXml
             Poligono personale = new Poligono(4, 7);
 
             lblRisultatoCol1.Text = $"Poligo di confronto: \r\nLati: \r\nLunghezza lato: \r\n\r\nL'esito del confronto";
-            lblRisultatoCol2.Text = $"\r\n{personale._nLati}\r\n{personale._l_lati}\r\n\r\n{figura.Confronta(personale)}";
+            lblRisultatoCol2.Text = $"\r\n{personale.NLati}\r\n{personale.LLati}\r\n\r\n{figura.Confronta(personale)}";
             DrawPrint(Nlati);
         }
 
